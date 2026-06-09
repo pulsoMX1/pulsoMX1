@@ -13,7 +13,6 @@ from bs4 import BeautifulSoup
 MODO_TURBO = True
 NOTICIAS_POR_CARRERA = 4 if MODO_TURBO else 1
 
-# RSS directos de fuentes mexicanas (expansion.mx eliminado por XML malformado)
 RSS_FEEDS = [
     "https://aristeguinoticias.com/feed/",
     "https://www.proceso.com.mx/rss/feed.html",
@@ -46,16 +45,11 @@ def guardar_noticias(noticias):
         json.dump(noticias, f, ensure_ascii=False, indent=2)
 
 def limpiar_titulo(titulo):
-    """Limpia el título de caracteres especiales que confunden a la IA."""
     if not titulo:
         return ""
-    # Eliminar espacios múltiples y caracteres de control
     titulo = re.sub(r'\s+', ' ', titulo).strip()
-    # Eliminar puntos suspensivos al final (truncamiento del RSS)
     titulo = re.sub(r'\.{2,}$', '', titulo).strip()
-    # Eliminar caracteres que pueden romper el JSON
     titulo = titulo.replace('"', "'").replace('\\', '')
-    # Limitar longitud
     return titulo[:200]
 
 def extraer_imagen_de_articulo(url_real):
@@ -65,16 +59,13 @@ def extraer_imagen_de_articulo(url_real):
         r = session.get(url_real, timeout=12, allow_redirects=True)
         if r.status_code != 200:
             return None
-
         soup = BeautifulSoup(r.text, 'html.parser')
-
         selectores = [
             {"property": "og:image"},
             {"name": "twitter:image"},
             {"property": "og:image:url"},
             {"name": "twitter:image:src"},
         ]
-
         for sel in selectores:
             meta = soup.find("meta", attrs=sel)
             if meta and meta.get("content"):
@@ -82,8 +73,6 @@ def extraer_imagen_de_articulo(url_real):
                 if ('logo' not in img.lower() and 'icon' not in img.lower()
                         and len(img) > 10 and img.startswith('http')):
                     return urljoin(url_real, img)
-
-        # Buscar primera imagen grande en el artículo
         for img_tag in soup.find_all("img"):
             src = img_tag.get("src") or img_tag.get("data-src") or img_tag.get("data-lazy-src")
             if (src and len(src) > 40
@@ -92,7 +81,6 @@ def extraer_imagen_de_articulo(url_real):
                     and 'avatar' not in src.lower()
                     and 'placeholder' not in src.lower()):
                 return urljoin(url_real, src)
-
     except Exception as e:
         print(f"   ⚠️ Error extrayendo imagen: {e}")
     return None
@@ -117,7 +105,6 @@ def reescribir_con_ia(titulo_orig):
 
     titulo_limpio = limpiar_titulo(titulo_orig)
 
-    # Si el título es muy corto o solo tiene caracteres raros, no procesar
     if len(titulo_limpio.split()) < 3:
         print(f"   ⚠️ Título demasiado corto, saltando IA")
         return titulo_limpio, "Noticia en desarrollo.", "Consulta el enlace original para más detalles."
@@ -128,29 +115,34 @@ def reescribir_con_ia(titulo_orig):
         "Content-Type": "application/json"
     }
 
-    prompt = f"""Eres un periodista profesional mexicano. Genera un artículo periodístico completo en español sobre este titular:
+    # ── PROMPT MEJORADO PARA ADSENSE ──
+    prompt = f"""Tienes frente a ti el siguiente titular de un medio mexicano:
 
-TITULAR: {titulo_limpio}
+"{titulo_limpio}"
 
-INSTRUCCIONES:
-- "titulo": título atractivo en español, máximo 90 caracteres
-- "resumen": párrafo de 3-4 oraciones con contexto, involucrados e importancia. Mínimo 80 palabras
-- "contenido": artículo de MÍNIMO 500 palabras con:
-  * Introducción: qué pasó, quién, cuándo, dónde
-  * 4 párrafos de desarrollo con contexto, antecedentes e impacto
-  * Citas probables de los involucrados
-  * Cierre con perspectivas futuras
-  * Párrafos separados con doble salto de línea
-  * Tono periodístico formal para el público mexicano
+Redacta una nota periodística completa como si fuera escrita por un reportero mexicano experimentado de 45 años que lleva 20 años cubriendo noticias nacionales. Usa su voz natural: directa, sin adornos, con oraciones cortas y variadas. Mezcla párrafos largos con párrafos cortos. Incluye frases coloquiales mexicanas ocasionalmente ("cabe destacar", "en ese sentido", "al respecto"). Varía la estructura de los párrafos para que no suenen repetitivos.
 
-Responde SOLO con JSON válido con las claves: titulo, resumen, contenido."""
+La nota debe incluir:
+- Titular: claro, informativo, máximo 85 caracteres, sin signos de exclamación
+- Resumen: 2-3 oraciones que respondan qué pasó y por qué importa. Entre 60 y 100 palabras
+- Contenido: nota completa de entre 400 y 600 palabras con:
+  * Primer párrafo: el hecho central (quién, qué, cuándo, dónde)
+  * Segundo y tercer párrafo: contexto y antecedentes
+  * Cuarto párrafo: reacciones o declaraciones probables de los involucrados (usa "señaló", "indicó", "expresó")
+  * Quinto párrafo: impacto en la población o en el país
+  * Párrafo de cierre: perspectiva a corto plazo
+  * Separa cada párrafo con una línea en blanco
+  * NO uses listas ni bullets
+  * NO uses encabezados dentro del contenido
+
+Responde ÚNICAMENTE con un objeto JSON con estas claves exactas: titulo, resumen, contenido."""
 
     payload = {
         "model": "llama-3.3-70b-versatile",
         "messages": [
             {
                 "role": "system",
-                "content": "Eres un periodista mexicano. Siempre respondes ÚNICAMENTE con un objeto JSON válido con las claves titulo, resumen y contenido. Nunca añades texto fuera del JSON."
+                "content": "Eres un editor de noticias mexicano. Tu única función es devolver un JSON válido con las claves titulo, resumen y contenido. No añades texto fuera del JSON. No usas markdown. No explicas nada."
             },
             {
                 "role": "user",
@@ -158,11 +150,11 @@ Responde SOLO con JSON válido con las claves: titulo, resumen, contenido."""
             }
         ],
         "response_format": {"type": "json_object"},
-        "temperature": 0.7,
-        "max_tokens": 1500
+        "temperature": 0.85,
+        "max_tokens": 1800
     }
 
-    for intento in range(2):  # 2 intentos
+    for intento in range(2):
         try:
             r = requests.post(url, headers=headers, json=payload, timeout=45)
             res = r.json()
@@ -174,17 +166,16 @@ Responde SOLO con JSON válido con las claves: titulo, resumen, contenido."""
                 continue
 
             contenido_crudo = res['choices'][0]['message']['content']
-
-            # Limpiar si viene con markdown
             contenido_crudo = re.sub(r'^```json\s*', '', contenido_crudo.strip())
             contenido_crudo = re.sub(r'```$', '', contenido_crudo.strip())
 
             data = json.loads(contenido_crudo)
-            titulo = limpiar_titulo(data.get("titulo", titulo_limpio))
-            resumen = data.get("resumen", "Noticia importante de México.")
+            titulo  = limpiar_titulo(data.get("titulo", titulo_limpio))
+            resumen  = data.get("resumen", "Noticia importante de México.")
             contenido = data.get("contenido", "Revisa el enlace original para más detalles.")
 
-            if len(contenido.split()) < 200:
+            # Si el contenido es muy corto, añadir el resumen al final
+            if len(contenido.split()) < 150:
                 contenido += "\n\n" + resumen
 
             return titulo, resumen, contenido
@@ -225,7 +216,6 @@ def ejecutar():
                 continue
             t_orig = t_orig.text
 
-            # Saltar títulos muy cortos o de columnas de opinión sin contenido real
             if len(limpiar_titulo(t_orig).split()) < 4:
                 print(f"   ⏭️ Saltando título muy corto: {t_orig[:40]}")
                 continue
@@ -267,7 +257,6 @@ def ejecutar():
             noticias_procesadas += 1
             print(f"✅ Guardada: {t_ia[:50]} ({len(c_ia.split())} palabras)")
 
-            # Pausa para evitar rate limit de Groq
             if noticias_procesadas < NOTICIAS_POR_CARRERA:
                 time.sleep(11)
 
