@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 # ⚙️ CONFIGURACIÓN
 MODO_TURBO = True
-NOTICIAS_POR_CARRERA = 4 if MODO_TURBO else 1
+NOTICIAS_POR_CARRERA = 3 if MODO_TURBO else 1
 
 RSS_FEEDS = [
     "https://aristeguinoticias.com/feed/",
