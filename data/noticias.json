@@ -1,35 +1,5 @@
 [
   {
-    "id": 38,
-    "titulo_original": "El ébola continúa su expansión en Congo y Uganda",
-    "titulo": "El ébola continúa su expansión en Congo y Uganda",
-    "resumen": "La enfermedad ha causado más de 60 muertes en Congo y se registra un caso en Uganda. La expansión del ébola puede tener graves consecuencias para la salud pública en la región. El gobierno de Uganda ha iniciado medidas de contención.",
-    "contenido": "El ébola continúa su expansión en la región de los Grandes Lagos en Congo y África, donde ya se han reportado más de 60 muertes desde que se detectó la enfermedad en mayo pasado. Recientemente, se ha registrado un caso en Uganda, lo que ha generado preocupación en la región.\n\nLa región de los Grandes Lagos es conocida por su alta densidad de población y falta de infraestructura, lo que facilita la propagación del ébola. La enfermedad ha sido reportada en varias provincias de Congo, incluyendo la provincia de Équateur, donde se registró el primer caso.\n\nSegún expertos, la falta de capacidad de respuesta del gobierno congoleño y la escasez de recursos han contribuido a la expansión del ébola. En ese sentido, se han reportado incidentes en que las autoridades no han podido llevar a cabo un control efectivo sobre la propagación de la enfermedad.\n\nEn su intervención, el jefe de la misión de la Organización Mundial de la Salud en Congo señaló que la situación es crítica y que se necesita una respuesta rápida y coordinada para contener la epidemia. Al respecto, expresó que el gobierno congoleño debe tomar medidas urgentes para mejorar la capacidad de respuesta y reducir la mortalidad.\n\nLa expansión del ébola puede tener graves consecuencias para la salud pública en la región. En Uganda, el gobierno ha iniciado medidas de contención, como la creación de campos de aislamiento y la distribución de equipos de protección individual. Cabe destacar que la región de los Grandes Lagos es importante para el comercio y la economía de la región, por lo que la epidemia puede tener un impacto significativo en el desarrollo de la región.\n\nEn la comunidad local, la gente está aterrada. Algunos han emprendido medidas de protección, como evitar el contacto con personas que han regresado de zonas afectadas. Otros han empezado a desconfiar de la autoridad, lo que puede empeorar la situación.\n\nA corto plazo, se espera que la situación empeore, ya que la temporada de lluvias está a punto de comenzar y las condiciones de salud en la región serán aún más críticas. En ese sentido, la comunidad internacional debe tomar medidas urgentes para apoyar a los países afectados y ayudar a contener la epidemia.",
-    "imagen": "https://wsrv.nl/?url=https%3A%2F%2Fwww.jornada.com.mx%2Fimagemeta%2F1200x630BN.jpg",
-    "fecha": "2026-06-11",
-    "url_origen": "https://www.jornada.com.mx/2026/06/11/mundo/025n5mun?partner=rss"
-  },
-  {
-    "id": 39,
-    "titulo_original": "Anuncios en NY deben etiquetar a los “artistas sintéticos” generados por IA   ",
-    "titulo": "Anuncios en NY deben etiquetar a los “artistas sintéticos” generados por IA",
-    "resumen": "La Comisión de Comercio de Nueva York (NYC) decidió que las agencias publicitarias deben identificar claramente a los modelos generados por inteligencia artificial en sus anuncios. Esto se debe a la creciente popularidad de los 'artistas sintéticos' en la publicidad. Se busca evitar engañar a los espectadores y promover la transparencia.",
-    "contenido": "\n\nLa Comisión de Comercio de Nueva York (NYC) decidió que las agencias publicitarias deben identificar claramente a los modelos generados por inteligencia artificial en sus anuncios. Esto se debe a la creciente popularidad de los 'artistas sintéticos' en la publicidad. Se busca evitar engañar a los espectadores y promover la transparencia.",
-    "imagen": "https://wsrv.nl/?url=https%3A%2F%2Fwww.jornada.com.mx%2Fimagemeta%2F1200x630BN.jpg",
-    "fecha": "2026-06-11",
-    "url_origen": "https://www.jornada.com.mx/2026/06/11/espectaculos/a07n2esp?partner=rss"
-  },
-  {
-    "id": 40,
-    "titulo_original": "Sheinbaum recibe en Palacio Nacional al titular de la FIFA   ",
-    "titulo": "Sheinbaum recibe a titular de la FIFA",
-    "resumen": "La Jefa de Gobierno de la Ciudad de México, Claudia Sheinbaum, recibió en el Palacio Nacional al titular de la Federación Internacional de Fútbol Asociación (FIFA). El encuentro se llevó a cabo en un momento en que el país se encuentra en una etapa de preparación para la candidatura a la Copa Mundial de la FIFA. Sheinbaum y su homólogo de la FIFA se reunieron para discutir aspectos técnicos y logísticos de la posible sede.",
-    "contenido": "\n\nLa Jefa de Gobierno de la Ciudad de México, Claudia Sheinbaum, recibió en el Palacio Nacional al titular de la Federación Internacional de Fútbol Asociación (FIFA). El encuentro se llevó a cabo en un momento en que el país se encuentra en una etapa de preparación para la candidatura a la Copa Mundial de la FIFA. Sheinbaum y su homólogo de la FIFA se reunieron para discutir aspectos técnicos y logísticos de la posible sede.",
-    "imagen": "https://wsrv.nl/?url=https%3A%2F%2Fwww.jornada.com.mx%2F2026%2F06%2F11%2Ffotos%2Fa09n2dep-1.jpg",
-    "fecha": "2026-06-11",
-    "url_origen": "https://www.jornada.com.mx/2026/06/11/deportes/a09n2dep?partner=rss"
-  },
-  {
     "id": 41,
     "titulo_original": "Trump impone su imagen al festejo por los 250 años de EU   ",
     "titulo": "Trump impone su imagen al festejo por los 250 años de EU",
@@ -998,5 +968,35 @@
     "imagen": "https://wsrv.nl/?url=https%3A%2F%2Fwww.jornada.com.mx%2F2026%2F06%2F15%2Ffotos%2F006o1eco-1.jpg",
     "fecha": "2026-06-16",
     "url_origen": "https://www.jornada.com.mx/2026/06/15/opinion/006o1eco?partner=rss"
+  },
+  {
+    "id": 138,
+    "titulo_original": "FIFA restringe preguntas en español durante conferencias de prensa   ",
+    "titulo": "FIFA restringe preguntas en español durante conferencias de prensa",
+    "resumen": "Noticia importante de México.",
+    "contenido": "Revisa el enlace original para más detalles.",
+    "imagen": "https://wsrv.nl/?url=https%3A%2F%2Fwww.jornada.com.mx%2Fimagemeta%2F1200x630BN.jpg",
+    "fecha": "2026-06-16",
+    "url_origen": "https://www.jornada.com.mx/2026/06/15/deportes/a11n3dep?partner=rss"
+  },
+  {
+    "id": 139,
+    "titulo_original": "Murió el cantante Oliver Tree tras colisión de dos helicópteros en Brasil   ",
+    "titulo": "Murió el cantante Oliver Tree tras colisión de dos helicópteros en Brasil",
+    "resumen": "Noticia importante de México.",
+    "contenido": "Revisa el enlace original para más detalles.",
+    "imagen": "https://wsrv.nl/?url=https%3A%2F%2Fwww.jornada.com.mx%2F2026%2F06%2F15%2Ffotos%2Fa06n1esp-1.jpg",
+    "fecha": "2026-06-16",
+    "url_origen": "https://www.jornada.com.mx/2026/06/15/espectaculos/a06n1esp?partner=rss"
+  },
+  {
+    "id": 140,
+    "titulo_original": "Hallan en playa de Manzanillo los cuerpos de  2 vendedores reportados como desaparecidos   ",
+    "titulo": "Hallan cuerpos de vendedores en Manzanillo",
+    "resumen": "En una búsqueda que duró varios días, las autoridades encontraron en la playa de Manzanillo, en el estado de Colima, los cuerpos de dos vendedores reportados como desaparecidos. La noticia sacudió a la comunidad y dejó a familiares y amigos en shock. La investigación continúa para determinar las causas de la desaparición y el hallazgo.",
+    "contenido": "\nLa búsqueda en la playa de Manzanillo comenzó después de que las autoridades recibieron un reporte de familiares de dos vendedores que habían estado trabajando en la zona turística. Los cuerpos fueron encontrados cerca de la arena, cubiertos de arena y con signos de haber estado en el agua. La identidad de las víctimas fue confirmada a través de documentos encontrados en el lugar.\n\nCabe destacar que en meses recientes, se han escuchado informes de actividad delictiva en la zona, lo que puede estar vinculado a este caso. La seguridad en la región ha sido un tema de preocupación para la comunidad y las autoridades locales.\n\nAl respecto, la fiscalía de Colima indicó que la investigación continúa para determinar las causas de la desaparición y el hallazgo de los cuerpos. Señaló que se están recopilando evidencias y testigos para esclarecer los hechos.\n\nEn ese sentido, familiares y amigos de las víctimas expresaron su shock y angustia ante la noticia. \"Eso es terrible",
+    "imagen": "https://wsrv.nl/?url=https%3A%2F%2Fwww.jornada.com.mx%2Fimagemeta%2F1200x630BN.jpg",
+    "fecha": "2026-06-16",
+    "url_origen": "https://www.jornada.com.mx/2026/06/15/estados/030n2est?partner=rss"
   }
 ]
